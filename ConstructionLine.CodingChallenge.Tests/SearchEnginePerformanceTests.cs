@@ -32,7 +32,8 @@ namespace ConstructionLine.CodingChallenge.Tests
 
             var options = new SearchOptions
             {
-                Colors = new List<Color> { Color.Red }
+                Colors = new List<Color> { Color.Red },
+                Sizes = new List<Size> { Size.Small },
             };
 
             var results = _searchEngine.Search(options);
@@ -41,8 +42,8 @@ namespace ConstructionLine.CodingChallenge.Tests
             Console.WriteLine($"Test fixture finished in {sw.ElapsedMilliseconds} milliseconds");
 
             AssertResults(results.Shirts, options);
-            AssertSizeCounts(_shirts, options, results.SizeCounts);
-            AssertColorCounts(_shirts, options, results.ColorCounts);
+            AssertSizeCounts(results.Shirts, options, results.SizeCounts);
+            AssertColorCounts(results.Shirts, options, results.ColorCounts);
         }
     }
 }
